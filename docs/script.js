@@ -500,11 +500,11 @@ function checkGameOver(){
     if (player.budget === 0){
         document.getElementById("game-over-message").textContent = "You lost. Better luck next time.";
         document.getElementById(`game-over`).style.display = `block`;
-        // setTimeout(() => {gameArea.style.display = `none`}, 10000);
+        setTimeout(() => {gameArea.style.display = `none`}, 10000);
     } else if (opponent.budget === 0) {
         document.getElementById("game-over-message").textContent = "You won. Lucky dog!";
         document.getElementById("game-over").style.display = `block`;
-        // setTimeout(() => {gameArea.style.display = `none`}, 10000);
+        setTimeout(() => {gameArea.style.display = `none`}, 10000);
     } else {
         toggleControl(false);
         newRoundButton.style.display = `block`;
@@ -537,7 +537,7 @@ function startGame(){
     toggleControl(isPlayerTurn);
 
     if (isPlayerTurn === false){
-        setTimeout(opponentTurn,1500);
+        setTimeout(opponentTurn,3000);
     }
 }
 function resetGame(){
@@ -599,7 +599,7 @@ function nextStage(){
     toggleControl(isPlayerTurn);
 
     if (isPlayerTurn === false){ 
-        setTimeout(opponentTurn, 1500); // Wait 5s before opponent makes move
+        setTimeout(opponentTurn, 3000); // Wait 5s before opponent makes move
     }
 }
 
@@ -621,7 +621,7 @@ function playerTurn(action){
                 bigBlindRaise = false;
                 updateTurnIndicator();
                 toggleControl(isPlayerTurn);
-                setTimeout(opponentTurn,1500);
+                setTimeout(opponentTurn,3000);
                 return;
             }
             nextStage();
@@ -634,7 +634,7 @@ function playerTurn(action){
                 updateTurnIndicator();
                 toggleControl(isPlayerTurn);
                 if (isPlayerTurn === false){ 
-                    setTimeout(opponentTurn, 1500); // Wait 5s before opponent makes move
+                    setTimeout(opponentTurn, 3000); // Wait 5s before opponent makes move
                 }
             }
         }
@@ -644,7 +644,7 @@ function playerTurn(action){
         updateTurnIndicator();
         toggleControl(isPlayerTurn);
         if (isPlayerTurn === false){ 
-            setTimeout(opponentTurn, 1500); // Wait 5s before opponent makes move
+            setTimeout(opponentTurn, 3000); // Wait 5s before opponent makes move
         }
     }
 }
