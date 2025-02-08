@@ -308,7 +308,6 @@ input[type="number"] {
   #game-area {
     max-width: 100%;
     overflow-x: hidden;
-    flex-direction: column;
     padding: 0.5rem;
   }
 
@@ -321,7 +320,6 @@ input[type="number"] {
   #cards {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     width: 90%;
     max-width: 90vw;
     height: auto;
