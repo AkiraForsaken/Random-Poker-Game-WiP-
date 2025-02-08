@@ -299,3 +299,41 @@ input[type="number"] {
     width: 100vw;
   }
 }
+
+@media (max-width: 768px) { /* Mobile config */
+  #title {
+    font-size: 3rem;
+  }
+
+  #game-area {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .hand {
+    width: 90%;
+    font-size: 1.5em;
+  }
+
+  #cards {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .player-cards, .playing-cards {
+    height: auto;
+    width: 18vw;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .button {
+    width: 90%;
+    padding: 0.75rem;
+  }
+}
