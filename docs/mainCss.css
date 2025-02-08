@@ -306,25 +306,36 @@ input[type="number"] {
   }
 
   #game-area {
+    max-width: 100%;
+    overflow-x: hidden;
     flex-direction: column;
     padding: 0.5rem;
   }
 
   .hand {
-    width: 90%;
+    width: 100%;
+    max-width: 50vw;
     font-size: 1.5em;
   }
 
   #cards {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     width: 90%;
+    max-width: 90vw;
     height: auto;
-    padding: 1rem;
+    gap: 5px;
+  }
+
+  #pot, #opponent-hand, #player-hand{
+    font-size: 1rem;
+    margin-bottom: 5px;
   }
 
   .player-cards, .playing-cards {
     height: auto;
-    width: 18%;
+    width: 18vw;
   }
 
   .actions {
@@ -336,4 +347,5 @@ input[type="number"] {
     width: 90%;
     padding: 0.75rem;
   }
+
 }
