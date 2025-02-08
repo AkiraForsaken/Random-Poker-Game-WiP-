@@ -3,31 +3,24 @@
 }
 #title-page{
   display: block;
-  color: aqua;
-  font-size: 1.5em;
+  color: #f1f1f1;
+  /* font-size: 1.5em; */
+  font-size: clamp(1em, 2.5vw, 1.5em);
 }
 #title{ /* title styling */
-  text-shadow:0.2em 0.2em 0.2em rgb(3, 104, 192), 0px -0.1em 0.1em red ;
+  text-shadow:0.1em 0.1em 0.1em #1c05a0, 0px -0.1em 0.1em #043988;
   text-align: center;
-  color:aqua;
+  color:#a09bdd;
   font-family: "Press Start 2P", "consolas", sans-serif;
-  font-size: 4em;
+  /* font-size: 4em; */
+  font-size: clamp(2em, 5vw, 4em);
   letter-spacing: 4px;
-}
-.fa-crown{
-  color: hsl(60, 100%, 50%);
 }
 .fa-youtube{
   color: red;
   display: block;
   display: inline;
-  font-size: 300%;
-}
-li:nth-child(3){
-  background-color: yellow;
-}
-li:nth-child(3n+1){
-  background-color: skyblue;
+  font-size: 200%;
 }
 #rules{
   font-style: italic;
@@ -35,7 +28,7 @@ li:nth-child(3n+1){
 }
 
 body{
-  background: linear-gradient(to top,rgb(6, 84, 6),rgb(5, 192, 5));
+  background: linear-gradient(to bottom,#287c2b,#0B3D02);
   background-repeat: no-repeat;
   background-attachment: fixed;
   /* background-image: url("refs/1920X1080_EN.jpg");
@@ -60,6 +53,7 @@ button.disabled{
   cursor: not-allowed;
 }
 .button{
+  font-size: clamp(1em, 2.5vw, 1.25em);
   background-color: whitesmoke;
   color: black;
   font-family:"consolas", sans-serif;
@@ -71,8 +65,7 @@ button.disabled{
   display: none;
 }
 .control { /* Start - Back */
-  font-size: 1.25em;
-  padding: 1.5em 1em; /* up - right - down - left or up/down - right/left */
+  padding: 1em 1em; /* up - right - down - left or up/down - right/left */
   border: 2px solid blue;
   align-self: flex-start;
   /* position: absolute; */
@@ -81,7 +74,6 @@ button.disabled{
   margin: auto;
 }
 .commands { /* Fold - Raise - Call */
-  font-size: 1.25em;
   padding: 0.75em;
   display: none;
   text-align: center;
@@ -92,7 +84,7 @@ button.disabled{
   display: none;
   border-radius: 10px;
   /* height: 100vh; */
-  width: 100vw;
+  width: 100%;
   flex-direction: column; /* Sets the main axis to vertical (y axis) - cross axis to x axis */
   justify-content: center;  
   /* along the main axis */
@@ -118,11 +110,12 @@ button.disabled{
   /* border-style: solid;
   border-width: 5px;
   border-color: gold; */
-  width: 30vw;
+  width: 25vw;
   height: 25vh;
   padding: 1rem;
   border: 10px solid gold; 
-  font-size: 2em;
+  /* font-size: 2em; */
+  font-size: clamp(1em, 3.5vw, 2em);
 } 
 #pot, #player-budget{
   position: absolute;
@@ -174,12 +167,12 @@ button.disabled{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border: 10px solid black;
+  border: 5px solid gold;
   gap: 1vw;
   margin: 1em;
   padding: 1.5em;
-  height: 35vh;
-  width: 58vw;
+  height: 30vh;
+  width: 50vw;
   background-image: url("refs/poker-table.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed; 
@@ -188,6 +181,7 @@ button.disabled{
 }
 .playing-cards{ /* flexbox elements */
   height: 20vh;
+  /* height: min(20vh, 100px); */
   width: auto;
 }
 .actions{ /* flexbox container for commands*/
@@ -221,14 +215,14 @@ button.disabled{
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-weight: bold;
   cursor: pointer;
 }
 #confirm-raise {
   padding: 10px 15px;
   margin: 0.5em auto 0 auto;
-  font-size: 1em;
+  /* font-size: 1em; */
 }
 input[type="range"] {
   width: 80%;
@@ -240,14 +234,16 @@ input[type="number"] {
   text-align: center;
 }
 #opponent {
-  background-color: red;
+  background-color: #600000;
 }
 #player {
-  background-color: dodgerblue;
+  background-color: #1E90FF;
 }
 .budget, .text-ui{
-  font-size: 1.5em;
-  color:whitesmoke;
+  /* font-size: 1.5em; */
+  font-size: clamp(1em, 2.5vw, 1.5em);
+  color:gold;
+  font-weight: bold;
   text-wrap: nowrap;
 }
 
@@ -261,7 +257,7 @@ input[type="number"] {
   padding-top: 20%;
 }
 .overlay h2{
-  font-size: 2.5em;
+  font-size: clamp(1.5em, 3.5vw, 2.5em);
   margin: auto;
 }
 #result {
@@ -271,15 +267,15 @@ input[type="number"] {
   left: 50%;
   transform: translate(-50%, -50%); 
   /* Shifting the element by 50% of its own width and height --> centering it */
-  font-size: 4.5em;
+  font-size: clamp(2.5em, 4.5vw, 5em);
   font-weight: bold;
   text-align: center;
   color: rgb(2, 59, 216);
-  /* background-image: url("refs/1920X1080_EN.jpg");
-  background-repeat: no-repeat;
+  /* background-image: url("refs/1920X1080_EN.jpg"); */
+  /* background-repeat: no-repeat; */
   background-attachment: fixed; 
   background-position: center; 
-  background-size: cover; */
+  background-size: cover;
   z-index: 10;
   /* animation: animation-name duration timing-function delay iteration-count direction fill-mode; */
 }
@@ -291,5 +287,15 @@ input[type="number"] {
   to {
     opacity: 1;
     transform: translate(-50%, -50%), scale(1);
+  }
+}
+@media (min-width: 1024px) { /* Desktop only */
+  html, body {
+    overflow: hidden;
+  }
+
+  #game-area {
+    height: 100vh;
+    width: 100vw;
   }
 }

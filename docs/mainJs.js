@@ -471,13 +471,15 @@ function showDownTime(){
         case 0: // player wins
             player.budget += finalPot;
             if (player.currentBet > opponent.currentBet) player.budget += excess;
-            resultText = "Player Wins !!!"
+            resultText = "Player Wins !!!";
+            resultDisplay.style.backgroundImage = "url('refs/smiley.png')";
             pot = 0;
             break;
         case 1: // opponent wins
             opponent.budget += finalPot;
             if (player.currentBet > opponent.currentBet) player.budget += excess;
-            resultText = "Opponent Wins !?!"
+            resultText = "Opponent Wins !?!";
+            resultDisplay.style.backgroundImage = "url('refs/sad.png')";
             pot = 0;
             break;
         case -1: // tie
