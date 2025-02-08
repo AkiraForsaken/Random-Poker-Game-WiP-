@@ -319,7 +319,6 @@ input[type="number"] {
 
   #cards {
     display: flex;
-    flex-wrap: wrap;
     width: 90%;
     max-width: 90vw;
     height: auto;
