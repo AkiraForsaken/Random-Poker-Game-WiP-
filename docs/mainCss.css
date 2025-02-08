@@ -312,17 +312,15 @@ input[type="number"] {
   }
 
   .hand {
-    width: 100%;
-    max-width: 50vw;
-    font-size: 1.5em;
+    width: fit-content;
+    height: fit-content;
   }
 
   #cards {
     display: flex;
-    width: 90%;
     max-width: 90vw;
+    justify-content: center;
     height: auto;
-    gap: 5px;
   }
 
   #pot, #opponent-hand, #player-hand{
