@@ -324,7 +324,7 @@ input[type="number"] {
 
   .player-cards, .playing-cards {
     height: auto;
-    width: 18vw;
+    width: 18%;
   }
 
   .actions {
