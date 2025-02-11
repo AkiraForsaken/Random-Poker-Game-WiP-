@@ -384,11 +384,6 @@ function determineWinner(){
     return -1;
 }
 function toggleControl(enable){
-    if (currentBet === player.currentBet){ // changes the Check and call button name appropriately
-        checkButton.textContent = "Check";
-    } else {
-        checkButton.textContent = "Call";
-    }
     if (player.budget === 0){ // all-in
         foldButton.disabled = true;
         checkButton.disabled = true;
@@ -397,10 +392,6 @@ function toggleControl(enable){
         checkButton.classList.add("disabled");
         raiseButton.classList.add("disabled");
         return;
-    }
-    if (opponent.budget === 0){
-        raiseButton.disabled = true;
-        raiseButton.classList.add("disabled");
     }
     foldButton.disabled = !enable;
     checkButton.disabled = !enable;
@@ -412,6 +403,17 @@ function toggleControl(enable){
     } else {
         foldButton.classList.add("disabled");
         checkButton.classList.add("disabled");
+        raiseButton.classList.add("disabled");
+    }
+    if (currentBet === player.currentBet){ // changes the Check and call button name appropriately
+        checkButton.textContent = "Check";
+        foldButton.disabled = true;
+        foldButton.classList.add("disabled");
+    } else {
+        checkButton.textContent = "Call";
+    }
+    if (opponent.budget === 0){
+        raiseButton.disabled = true;
         raiseButton.classList.add("disabled");
     }
 }
@@ -657,10 +659,19 @@ function playerTurn(action){
 
 function opponentTurn(){
     let decisionToken = Math.random(); // always lower than 1
+    if (opponent.budget === 0){
+        console.log(`Im all`);
+        lastRaise = opponent;
+        isPlayerTurn = true; // Back to player
+        updateUI();
+        updateTurnIndicator();
+        toggleControl(isPlayerTurn);
+        return;
+    }
 
     if (decisionToken < 0.3 && player.budget !== 0 && (opponent.currentBet + opponent.budget) > currentBet){ // raise
         const min = Math.min(opponent.budget + opponent.currentBet, currentBet + 10);
-        const max = opponent.budget + opponent.currentBet;
+        const max = Math.min(player.budget + player.currentBet,opponent.budget + opponent.currentBet);
         const raiseAmount = Math.floor(Math.random() * ((Math.floor(max / 10) * 10 - Math.floor(min / 10) * 10) / 10 + 1)) * 10 + Math.ceil(min / 10) * 10;
         // let raiseAmount = Math.floor(Math.random() * ((maxRaise - currentBet) / 10 + 1)) * 10 + currentBet;
         // = random*(max-min+1) + min, max = player.budget + player.currentBet, min = currentBet + 10 
@@ -752,7 +763,7 @@ function checkOrCall(target){
 }
 
 function raise(){  // The raise value is the new current bet value
-    slider.max = (player.budget + player.currentBet); // set max raise amount
+    slider.max = Math.min(opponent.budget + opponent.currentBet,player.budget + player.currentBet); // set max raise amount
     slider.min = Math.min(player.budget + player.currentBet, currentBet + 10); // set minimum raise amount
     inputValue.max = (player.budget + player.currentBet);
     inputValue.min = Math.min(player.budget + player.currentBet, currentBet + 10);
