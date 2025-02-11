@@ -398,6 +398,10 @@ function toggleControl(enable){
         raiseButton.classList.add("disabled");
         return;
     }
+    if (opponent.budget === 0){
+        raiseButton.disabled = true;
+        raiseButton.classList.add("disabled");
+    }
     foldButton.disabled = !enable;
     checkButton.disabled = !enable;
     raiseButton.disabled = !enable;
