@@ -483,7 +483,7 @@ function showDownTime(){
             break;
         case 1: // opponent wins
             opponent.budget += finalPot;
-            if (player.currentBet > opponent.currentBet) player.budget += excess;
+            if (player.currentBet < opponent.currentBet) opponent.budget += excess;
             resultText = "Opponent Wins !?!";
             resultDisplay.style.backgroundImage = "url('refs/sad.png')";
             pot = 0;
@@ -613,6 +613,10 @@ function nextStage(){
 
 function playerTurn(action){
     if (isPlayerTurn === false) return;
+    if (opponent.budget === 0 && currentBet < player.currentBet){
+        nextStage();
+        return;
+    }
     if (action === `fold`){
         fold(player);
     } else if (action === `check`){
@@ -668,8 +672,22 @@ function opponentTurn(){
         toggleControl(isPlayerTurn);
         return;
     }
+    if (player.budget === 0){ // fold or call
+        if (opponent.currentBet >= currentBet){ // automatically call
+            nextStage();
+            return;
+        } else{ // decision
+            if (decisionToken < 0.7){
+                opponent.bet(currentBet - opponent.currentBet);
+                nextStage();
+            } else {
+                fold(opponent);
+            }
+            return;
+        }
+    }
 
-    if (decisionToken < 0.3 && player.budget !== 0 && (opponent.currentBet + opponent.budget) > currentBet){ // raise
+    if (decisionToken < 0.3 && (opponent.currentBet + opponent.budget) > currentBet){ // raise
         const min = Math.min(opponent.budget + opponent.currentBet, currentBet + 10);
         const max = Math.min(player.budget + player.currentBet,opponent.budget + opponent.currentBet);
         const raiseAmount = Math.floor(Math.random() * ((Math.floor(max / 10) * 10 - Math.floor(min / 10) * 10) / 10 + 1)) * 10 + Math.ceil(min / 10) * 10;
@@ -750,7 +768,7 @@ function checkOrCall(target){
             opponentAction.textContent = "(Opponent called)";
         }
         return `call`;
-    } else if (currentBet === target.currentBet){ // check
+    } else if (currentBet <= target.currentBet){ // check
         if (target.isPlayer){
             console.log("Checking? Interesting...");
             playerAction.textContent = "(Player checked)"
