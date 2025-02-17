@@ -42,7 +42,7 @@
         <div id="game-area">
             <button id="back-button" class="button control">Back to title</button>
             <div id="game-top" class="areas"> <!-- Top section -->
-                <p id="pot" class="budget">Pot</p>
+                <div id="pot" class="budget text-ui" >Pot</div>
                 <div id="opponent" class="hand">
                     <div id="opponent-hand">Opponent hand:</div>
                     <div class="card-container">
@@ -50,12 +50,12 @@
                         <img class="player-cards" id="opponent-2" src="refs/PNG-cards-1.3/red_joker.png">
                     </div>
                 </div>
-                <p id="opponent-budget" class="budget">Opponent Budget:</p>
+                <div id="opponent-budget" class="budget text-ui">Opponent Budget:</div>
             </div>
             <div id="game-middle" class="areas"> <!-- Middle section -->
-                <div id="turn-indicator">
-                    <p id="turn" class="text-ui"></p> 
-                    <p id="opponent-action" class="text-ui"></p>
+                <div id="turn-indicator" class="indicator text-ui">
+                    <div id="turn" class="text-ui"></div> 
+                    <div id="opponent-action" class="text-ui"></div>
                 </div>
                 <div id="cards">
                     <img class="playing-cards" id="flop-1" src="refs/PNG-cards-1.3/red_joker.png">
@@ -65,13 +65,13 @@
                     <img class="playing-cards" id="the-river" src="refs/PNG-cards-1.3/red_joker.png">
                 </div>
                 <div id="result"></div>
-                <div id="blind-indicator">
-                    <p id="blind" class="text-ui"></p>
-                    <p id="player-action" class="text-ui"></p> 
+                <div id="blind-indicator" class="indicator text-ui"> 
+                    <div id="blind" class="text-ui"></div>
+                    <div id="player-action" class="text-ui"></div> 
                 </div>
             </div>
             <div id="game-bottom" class="areas"> <!-- Bottom section -->
-                <p id="current-bet" class="budget">Current Bet</p>
+                <div id="current-bet" class="budget text-ui">Current Bet</div>
                 <div id="player" class="hand">
                     <div id="player-hand">Your hand:</div>
                     <div class="card-container">
@@ -79,7 +79,7 @@
                         <img class="player-cards" id="player-2" src="refs/PNG-cards-1.3/red_joker.png">
                     </div>
                 </div>
-                <p id="player-budget" class="budget">Your Budget:</p>
+                <div id="player-budget" class="budget text-ui">Your Budget:</div>
             </div>
             <div class="actions"> 
                 <button id="start" class="button control" onclick="startGame()">Start Game</button>

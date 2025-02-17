@@ -119,38 +119,35 @@ button.disabled{
 #pot, #player-budget{
   position: absolute;
   left: 0;
-  top: 10%;
-  margin-left: 2em;
+  padding: 2em;
+  border: 5px solid #a09bdd;
 }
 #opponent-budget, #current-bet{
   position: absolute;
-  right:0;
-  top: 10%;
-  margin-right: 2em;
+  right:1%;
+  padding: 2em;
+  border: 5px solid #a09bdd;
+}
+.indicator{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 30vh;
+  width: 15vw;
+  padding: 2em;
+  border: 5px solid rgba(29, 16, 16, 0.8);
 }
 #blind-indicator{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
   right: 0;
   top: 10%;
-  height: auto;
-  width: 15vw;
-  margin-right: 2em;
+  margin-right: 2%;
 }
 #turn-indicator{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
   left: 0;
   top: 10%;
-  height: auto;
-  width: 15vw;
-  margin-left: 2em;
+  margin-left: 1%;
 }
 .card-container{ /* flexbox container for hand cards*/
   display: flex;
@@ -240,10 +237,12 @@ input[type="number"] {
 }
 .budget, .text-ui{
   /* font-size: 1.5em; */
-  font-size: clamp(1em, 2.5vw, 1.5em);
+  font-size: clamp(1em, 1.5vw, 1.5em);
+  align-self: center;
   color:gold;
   font-weight: bold;
   text-wrap: nowrap;
+  background-color: green;
 }
 
 .overlay { /* ----------------------------------------------------------- */
