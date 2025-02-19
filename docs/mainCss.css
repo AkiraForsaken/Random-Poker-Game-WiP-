@@ -136,7 +136,7 @@ button.disabled{
   position: absolute;
   height: 30vh;
   width: 15vw;
-  padding: 2em;
+  padding: 1em;
   border: 5px solid rgba(29, 16, 16, 0.8);
 }
 #blind-indicator{
@@ -239,10 +239,13 @@ input[type="number"] {
   /* font-size: 1.5em; */
   font-size: clamp(1em, 1.5vw, 1.5em);
   align-self: center;
+  text-align: center;
   color:gold;
   font-weight: bold;
-  text-wrap: nowrap;
-  background-color: green;
+  text-wrap: wrap;
+}
+#game-over-message{
+  color: whitesmoke;
 }
 
 .overlay { /* ----------------------------------------------------------- */
@@ -273,8 +276,8 @@ input[type="number"] {
   /* background-repeat: no-repeat; */
   background-attachment: fixed; 
   background-position: center; 
-  background-size: cover;
-  z-index: 10;
+  background-size: contain;
+  z-index: 10; /* */
   /* animation: animation-name duration timing-function delay iteration-count direction fill-mode; */
 }
 @keyframes fadeIn{
